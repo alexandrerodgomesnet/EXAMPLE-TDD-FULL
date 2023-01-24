@@ -10,14 +10,14 @@ public class MarsRover
     public MarsRover(string initialState)
     {
         _initialState = initialState;
-        _position = new Position();
     }
 
     public string Execute(string commands)
     {
         var states = _initialState.Split(":");
-        _position.X = int.Parse(states[0]);
-        _position.Y = int.Parse(states[1]);
+        var x = int.Parse(states[0]);
+        var y = int.Parse(states[1]);
+        _position = new Position(x, y);
         var directionStringCommand = states[2];
 
         if (commands == "M")
