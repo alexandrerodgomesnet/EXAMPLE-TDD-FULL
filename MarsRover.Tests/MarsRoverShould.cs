@@ -4,23 +4,15 @@ namespace MarsRover.Tests;
 
 public class MarsRoverShould
 {
-    [Fact]
-    public void PrintInitialStateFromOnePosition()
+    [Theory]
+    [InlineData("0:0:N")]
+    [InlineData("2:1:W")]
+    public void PrintInitialState(string initialState)
     {        
-        var marsRover = new MarsRover("0:0:N");
+        var marsRover = new MarsRover(initialState);
 
         var result = marsRover.Execute("");
 
-        result.Should().Be("0:0:N");
-    }
-
-    [Fact]
-    public void PrintInitialStateFromAnotherPosition()
-    {        
-        var marsRover = new MarsRover("2:1:W");
-
-        var result = marsRover.Execute("");
-
-        result.Should().Be("2:1:W");
+        result.Should().Be(initialState);
     }
 }
