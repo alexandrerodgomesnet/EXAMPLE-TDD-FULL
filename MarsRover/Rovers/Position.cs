@@ -1,4 +1,4 @@
-namespace MarsRover;
+namespace MarsRover.Rovers;
 
 public class Position
 {
