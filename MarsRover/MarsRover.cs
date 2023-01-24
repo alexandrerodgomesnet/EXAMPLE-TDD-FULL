@@ -20,17 +20,16 @@ public class MarsRover
         _position = new Position(x, y);
         var directionStringCommand = states[2];
 
+        _direction = DirectionFactory.CreateFrom(directionStringCommand);
+        
         if (commands == "M")
-        {
-            _direction = DirectionFactory.CreateFrom(directionStringCommand);
             _position = _direction.MoveForward(_position);
-        }
+        
 
-        if (commands == "R")
-        {
-            return "1:1:W";
-        }
+        if (commands == "R")       
+            _direction = _direction.ToRight();
+        
 
-        return $"{_position.X}:{_position.Y}:{directionStringCommand}";
+        return $"{_position.X}:{_position.Y}:{_direction.AsStringCommand()}";
     }
 }
