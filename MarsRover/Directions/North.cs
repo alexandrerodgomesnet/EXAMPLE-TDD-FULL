@@ -1,10 +1,10 @@
-namespace MarsRover;
+namespace MarsRover.Directions;
 
-public class East : IDirection
+public class North : IDirection
 {
     public Position MoveForward(Position position)
     {
-        position.X++;
+        position.Y++;
         return position;
     }
 }

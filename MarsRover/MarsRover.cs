@@ -1,3 +1,5 @@
+using MarsRover.Directions;
+
 namespace MarsRover;
 
 public class MarsRover
