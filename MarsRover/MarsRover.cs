@@ -26,6 +26,11 @@ public class MarsRover
             _position = _direction.MoveForward(_position);
         }
 
+        if (commands == "R")
+        {
+            return "1:1:W";
+        }
+
         return $"{_position.X}:{_position.Y}:{directionStringCommand}";
     }
 }

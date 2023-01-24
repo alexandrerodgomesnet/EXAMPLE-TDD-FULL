@@ -12,6 +12,7 @@ public class MarsRoverShould
     [InlineData("1:1:W", "M", "0:1:W")]
     [InlineData("1:1:E", "M", "2:1:E")]
     [InlineData("1:1:S", "M", "1:0:S")]
+    [InlineData("1:1:S", "R", "1:1:W")]
     public void ExecuteCommands(string initialState, string command, string expectedFinalState)
     {
         var marsRover = new MarsRover(initialState);
