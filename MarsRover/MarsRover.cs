@@ -20,7 +20,7 @@ public class MarsRover
 
         if (commands == "M")
         {
-            _direction = DirectionFactory.CreateDirectionFrom(directionStringCommand);
+            _direction = DirectionFactory.CreateFrom(directionStringCommand);
             _position = _direction.MoveForward(_position);
         }
 

@@ -2,7 +2,7 @@ namespace MarsRover;
 
 public class DirectionFactory
 {
-    public static IDirection CreateDirectionFrom(string direction)
+    public static IDirection CreateFrom(string direction)
     {
         switch (direction)
         {
