@@ -1,6 +1,6 @@
 namespace MarsRover;
 
-public class West
+public class West : IDirection
 {
     public static Position MoveForward(Position position)
     {
