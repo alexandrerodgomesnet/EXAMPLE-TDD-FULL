@@ -19,11 +19,11 @@ public class MarsRover
         if(commands == "M")
         {
             if(direction == "N")
-                return $"{positionX}:{positionY + 1}:{direction}";
+                positionY++;
             else
-                return $"{positionX - 1}:{positionY}:{direction}";
+                positionX--;
         }
 
-        return _initialState;
+        return $"{positionX}:{positionY}:{direction}";
     }
 }
