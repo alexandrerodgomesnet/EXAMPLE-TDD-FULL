@@ -3,7 +3,7 @@ namespace MarsRover;
 public class MarsRover
 {
     private readonly string _initialState;
-    private readonly Position _position;
+    private Position _position;
     public MarsRover(string initialState)
     {
         _initialState = initialState;
@@ -22,17 +22,17 @@ public class MarsRover
             switch (direction)
             {
                 case "N":
-                    _position.Y++;
+                    _position = North.MoveForward(_position);                    
                     break;
                 case "W":
-                    _position.X--;
+                    _position = West.MoveForward(_position);
                     break;
                 case "E":
-                    _position.X++;
+                    _position = East.MoveForward(_position);
                     break;
             }
         }
 
         return $"{_position.X}:{_position.Y}:{direction}";
-    }
+    }    
 }
