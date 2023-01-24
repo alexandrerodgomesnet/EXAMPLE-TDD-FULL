@@ -28,6 +28,9 @@ public class MarsRover
 
         if (commands == "R")       
             _direction = _direction.ToRight();
+
+        if (commands == "L")       
+            _direction = _direction.ToLeft();
         
 
         return $"{_position.X}:{_position.Y}:{_direction.AsStringCommand()}";
