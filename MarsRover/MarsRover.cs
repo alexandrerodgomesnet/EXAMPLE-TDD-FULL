@@ -1,38 +1,24 @@
-using MarsRover.Directions;
+using MarsRover.Commands;
+using MarsRover.Rovers;
 
 namespace MarsRover;
 
 public class MarsRover
 {
-    private readonly string _initialState;
-    private IDirection _direction;
-    private Position _position;
+    private Rover _rover;
     public MarsRover(string initialState)
     {
-        _initialState = initialState;
+        _rover = RoverFactory.CreateFrom(initialState);
     }
-
-    public string Execute(string commands)
-    {
-        var states = _initialState.Split(":");
-        var x = int.Parse(states[0]);
-        var y = int.Parse(states[1]);
-        _position = new Position(x, y);
-        var directionStringCommand = states[2];
-
-        _direction = DirectionFactory.CreateFrom(directionStringCommand);
+    
+    public string Execute(string stringCommands)
+    {        
+        var commands = stringCommands.ToCharArray()
+            .Select(CommandFactory.CreateFrom)
+            .ToList();
         
-        if (commands == "M")
-            _position = _direction.MoveForward(_position);
-        
+        commands.ForEach(command => _rover = _rover.Apply(command));
 
-        if (commands == "R")       
-            _direction = _direction.ToRight();
-
-        if (commands == "L")       
-            _direction = _direction.ToLeft();
-        
-
-        return $"{_position.X}:{_position.Y}:{_direction.AsStringCommand()}";
-    }
+        return _rover.PrintState();
+    }    
 }
