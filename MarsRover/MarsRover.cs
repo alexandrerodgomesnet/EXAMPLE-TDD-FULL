@@ -20,8 +20,10 @@ public class MarsRover
         {
             if(direction == "N")
                 positionY++;
-            else
+            else if(direction == "W")
                 positionX--;
+            else if(direction == "E")
+                positionX++;
         }
 
         return $"{positionX}:{positionY}:{direction}";
