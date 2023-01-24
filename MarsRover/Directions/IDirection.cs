@@ -1,4 +1,7 @@
+using MarsRover.Rovers;
+
 namespace MarsRover.Directions;
+
 public interface IDirection
 {
     string AsStringCommand();

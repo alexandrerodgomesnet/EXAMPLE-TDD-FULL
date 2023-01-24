@@ -1,3 +1,5 @@
+using MarsRover.Rovers;
+
 namespace MarsRover.Directions;
 
 public class North : IDirection
