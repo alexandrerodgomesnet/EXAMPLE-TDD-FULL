@@ -18,12 +18,18 @@ public class MarsRover
 
         if(commands == "M")
         {
-            if(direction == "N")
-                positionY++;
-            else if(direction == "W")
-                positionX--;
-            else if(direction == "E")
-                positionX++;
+            switch (direction)
+            {
+                case "N":
+                    positionY++;
+                    break;
+                case "W":
+                    positionX--;
+                    break;
+                case "E":
+                    positionX++;
+                    break;
+            }
         }
 
         return $"{positionX}:{positionY}:{direction}";
