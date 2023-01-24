@@ -16,13 +16,15 @@ public class MarsRoverShould
         result.Should().Be(initialState);
     }
 
-    [Fact]
-    public void MoveForward()
+    [Theory]
+    [InlineData("0:0:N", "0:1:N")]
+    [InlineData("1:1:N", "1:2:N")]
+    public void MoveForward(string initialState, string expectedFinalState)
     {
-        var marsRover = new MarsRover("0:0:N");
+        var marsRover = new MarsRover(initialState);
 
         var result = marsRover.Execute("M");
 
-        result.Should().Be("0:1:N");
+        result.Should().Be(expectedFinalState);
     }
 }

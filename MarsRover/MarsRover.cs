@@ -11,9 +11,14 @@ public class MarsRover
 
     public string Execute(string commands)
     {
+        var states = _initialState.Split(":");
+        var positionX = int.Parse(states[0]);
+        var positionY = int.Parse(states[1]);
+        var direction = states[2];
+
         if(commands == "M")
-            return "0:1:N";
-            
+            return $"{positionX}:{positionY + 1}:{direction}";
+
         return _initialState;
     }
 }
