@@ -17,7 +17,12 @@ public class MarsRover
         var direction = states[2];
 
         if(commands == "M")
-            return $"{positionX}:{positionY + 1}:{direction}";
+        {
+            if(direction == "N")
+                return $"{positionX}:{positionY + 1}:{direction}";
+            else
+                return $"{positionX - 1}:{positionY}:{direction}";
+        }
 
         return _initialState;
     }
