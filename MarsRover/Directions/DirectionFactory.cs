@@ -12,6 +12,8 @@ public class DirectionFactory
                 return new West();
             case "E":
                 return new East();
+            case "S":
+                return new South();
             default:
                 throw new NotSupportedException($"Direction {direction} is not supported.");
         }
